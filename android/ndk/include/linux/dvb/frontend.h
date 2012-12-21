@@ -205,6 +205,13 @@ typedef enum fe_hierarchy {
 } fe_hierarchy_t;
 
 
+typedef enum fe_ofdm_mode
+{
+	OFDM_DVBT,
+	OFDM_DVBT2,
+}fe_ofdm_mode_t;
+
+
 struct dvb_qpsk_parameters {
 	__u32		symbol_rate;  /* symbol rate in Symbols per second */
 	fe_code_rate_t	fec_inner;    /* forward error correction (see above) */
@@ -228,11 +235,11 @@ struct dvb_ofdm_parameters {
 	fe_transmit_mode_t  transmission_mode;
 	fe_guard_interval_t guard_interval;
 	fe_hierarchy_t      hierarchy_information;
+	fe_ofdm_mode_t ofdm_mode;
 };
 
 #define ANALOG_FLAG_ENABLE_AFC                 0X00000001
 struct dvb_analog_parameters {
-	unsigned int         mode;    /*V4L2_TUNER_RADIO,V4L2_TUNER_ANALOG_TV,V4L2_TUNER_DIGITAL_TV*/
 	unsigned int         audmode; /*V4L2_TUNER_MODE_MONO,V4L2_TUNER_MODE_STEREO,V4L2_TUNER_MODE_LANG2,V4L2_TUNER_MODE_SAP,V4L2_TUNER_MODE_LANG1,V4L2_TUNER_MODE_LANG1_LANG2*/
 	unsigned int         soundsys;/*A2,BTSC,EIAJ,NICAM*/
 	v4l2_std_id           std;
