@@ -205,13 +205,6 @@ typedef enum fe_hierarchy {
 } fe_hierarchy_t;
 
 
-typedef enum fe_ofdm_mode
-{
-	OFDM_DVBT,
-	OFDM_DVBT2,
-}fe_ofdm_mode_t;
-
-
 struct dvb_qpsk_parameters {
 	__u32		symbol_rate;  /* symbol rate in Symbols per second */
 	fe_code_rate_t	fec_inner;    /* forward error correction (see above) */
@@ -235,7 +228,6 @@ struct dvb_ofdm_parameters {
 	fe_transmit_mode_t  transmission_mode;
 	fe_guard_interval_t guard_interval;
 	fe_hierarchy_t      hierarchy_information;
-	fe_ofdm_mode_t ofdm_mode;
 };
 
 #define ANALOG_FLAG_ENABLE_AFC                 0X00000001
