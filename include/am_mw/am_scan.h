@@ -124,6 +124,8 @@ enum AM_SCAN_DTVMode
 	AM_SCAN_DTVMODE_FTA				= 0x20,	/**< Only scan free programs*/
 	AM_SCAN_DTVMODE_NOTV			= 0x40, /**< Donot store tv programs*/
 	AM_SCAN_DTVMODE_NORADIO			= 0x80, /**< Donot store radio programs*/
+	AM_SCAN_DTVMODE_ISDBT_ONESEG	= 0x100, /**< Scan ISDBT oneseg in layer A*/
+	AM_SCAN_DTVMODE_ISDBT_FULLSEG	= 0x200, /**< Scan ISDBT fullseg*/
 };
 
 /**\brief ATV搜索模式定义*/
@@ -318,8 +320,6 @@ struct AM_SCAN_CreatePara_s
 	int mode;							/**< TV 搜索模式，见AM_SCAN_Mode*/
 	AM_SCAN_StoreCb store_cb;			/**< 搜索完成时存储回调函数*/
 	sqlite3 *hdb;						/**< 数据库句柄*/
-	char default_text_lang[4];			/**< */
-	char text_langs[128];				/**< */
 	AM_SCAN_ATVCreatePara_t atv_para;	/**< ATV 搜索参数*/
 	AM_SCAN_DTVCreatePara_t dtv_para;	/**< DTV 搜索参数*/
 };
