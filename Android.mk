@@ -57,4 +57,21 @@ LOCAL_SRC_FILES := libam_ver.so
 endif
 include $(BUILD_PREBUILT)
 
+include $(CLEAR_VARS)
+LOCAL_MODULE := libam_sysfs
+LOCAL_MODULE_SUFFIX :=.so
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_TAGS := optional
+LOCAL_PRELINK_MODULE := false
+ifdef TARGET_2ND_ARCH
+LOCAL_MULTILIB := $(multilib)
+LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64
+LOCAL_SRC_FILES_64 := lib64/libam_sysfs.so
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib
+LOCAL_SRC_FILES_32 := libam_sysfs.so
+else
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
+LOCAL_SRC_FILES := libam_sysfs.so
+endif
+include $(BUILD_PREBUILT)
 
