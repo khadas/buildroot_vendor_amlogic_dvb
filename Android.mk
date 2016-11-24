@@ -18,7 +18,7 @@ else
 LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 LOCAL_SRC_FILES := libam_adp.so
 endif
-include $(BUILD_PREBUILT)
+#include $(BUILD_PREBUILT)
 
 
 include $(CLEAR_VARS)
@@ -37,7 +37,7 @@ else
 LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 LOCAL_SRC_FILES := libam_mw.so
 endif
-include $(BUILD_PREBUILT)
+#include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libam_ver
@@ -55,7 +55,7 @@ else
 LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 LOCAL_SRC_FILES := libam_ver.so
 endif
-include $(BUILD_PREBUILT)
+#include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libam_sysfs
@@ -73,5 +73,5 @@ else
 LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 LOCAL_SRC_FILES := libam_sysfs.so
 endif
-include $(BUILD_PREBUILT)
+#include $(BUILD_PREBUILT)
 
