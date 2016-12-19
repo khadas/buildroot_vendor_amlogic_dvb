@@ -8,7 +8,7 @@
 
 #include "am_dmx.h"
 #include "am_upd.h"
-
+#include <errno.h>
 
 static int monitor_callback(unsigned char *pnit, unsigned int len, void *user)
 {

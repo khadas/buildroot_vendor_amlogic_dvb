@@ -16,7 +16,8 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../include/am_adp $(LOCAL_PATH)/../../andro
 		    $(LOCAL_PATH)/../../../../packages/amlogic/LibPlayer/amplayer
 
 
-LOCAL_STATIC_LIBRARIES := libam_adp
-LOCAL_SHARED_LIBRARIES := libamplayer libcutils liblog libc
+#LOCAL_STATIC_LIBRARIES := libam_adp
+LOCAL_SHARED_LIBRARIES := libam_adp libamplayer libcutils liblog libc
+LOCAL_32_BIT_ONLY := true
 
 include $(BUILD_EXECUTABLE)

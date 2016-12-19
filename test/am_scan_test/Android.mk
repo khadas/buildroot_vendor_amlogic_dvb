@@ -21,6 +21,7 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../include/am_adp $(LOCAL_PATH)/../../andro
 
 
 LOCAL_SHARED_LIBRARIES += libicuuc libzvbi libam_adp libsqlite libamplayer liblog libc	libam_adp libam_mw
+LOCAL_32_BIT_ONLY := true
 
 include $(BUILD_EXECUTABLE)
 

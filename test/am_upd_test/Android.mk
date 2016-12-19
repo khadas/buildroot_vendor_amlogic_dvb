@@ -13,8 +13,9 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../include/am_adp \
 					$(LOCAL_PATH)/../../android/ndk/include \
 					$(LOCAL_PATH)/../../include/am_mw
 
-LOCAL_STATIC_LIBRARIES := libam_mw libam_adp
-LOCAL_SHARED_LIBRARIES := liblog libc
+#LOCAL_STATIC_LIBRARIES := libam_mw libam_adp
+LOCAL_SHARED_LIBRARIES := libam_mw libam_adp liblog libc
+LOCAL_32_BIT_ONLY := true
 
 LOCAL_LDFLAGS += -ldl
 

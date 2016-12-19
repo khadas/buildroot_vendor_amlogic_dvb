@@ -19,8 +19,9 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../include/am_adp $(LOCAL_PATH)/../../andro
                     external/sqlite/dist\
                     external/icu4c/common
 
-LOCAL_STATIC_LIBRARIES += libam_mw libam_adp
-LOCAL_SHARED_LIBRARIES += libdl libicuuc libzvbi libsqlite libamplayer libcutils liblog libc
+#LOCAL_STATIC_LIBRARIES += libam_mw libam_adp
+LOCAL_SHARED_LIBRARIES += libam_mw libam_adp libdl libicuuc libzvbi libsqlite libamplayer libcutils liblog libc
+LOCAL_32_BIT_ONLY := true
 
 include $(BUILD_EXECUTABLE)
 
