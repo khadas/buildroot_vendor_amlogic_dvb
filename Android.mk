@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-multilib := 32
+multilib := both
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libam_adp
