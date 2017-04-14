@@ -3,11 +3,11 @@ AMLOGIC_LIBPLAYER :=y
 
 ifeq (1,$(strip $(shell expr $(PLATFORM_SDK_VERSION) \>= 25)))
 AMADEC_C_INCLUDES:=hardware/amlogic/media/amcodec/include\
-	hardware/amlogic/LibAudio/amadec/include
+       hardware/amlogic/LibAudio/amadec/include
 AMADEC_LIBS:=libamadec
 else
 AMADEC_C_INCLUDES:=vendor/amlogic/frameworks/av/LibPlayer/amcodec/include\
-	vendor/amlogic/frameworks/av/LibPlayer/amadec/include
+       vendor/amlogic/frameworks/av/LibPlayer/amadec/include
 AMADEC_LIBS:=libamplayer
 endif
 
@@ -44,7 +44,7 @@ endif
 LOCAL_ARM_MODE := arm
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../include/am_adp\
 		    $(LOCAL_PATH)/../android/ndk/include\
-		    $(AMADEC_C_INCLUDES)\
+			$(AMADEC_C_INCLUDES)\
 		    external/icu/icu4c/source/common\
 		    common/include/linux/amlogic
 
@@ -91,7 +91,7 @@ endif
 LOCAL_ARM_MODE := arm
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../include/am_adp\
 		    $(LOCAL_PATH)/../android/ndk/include\
-		    $(AMADEC_C_INCLUDES)\
+			$(AMADEC_C_INCLUDES)\
 		    external/icu/icu4c/source/common\
 		    common/include/linux/amlogic
 
