@@ -3,7 +3,7 @@ LOCAL_PATH := $(call my-dir)
 multilib := both
 
 ifeq (1,$(strip $(shell expr $(PLATFORM_SDK_VERSION) \>= 25)))
-LIB32_PATH:=lib32
+LIB32_PATH:=lib32/
 else
 LIB32_PATH:=
 endif
