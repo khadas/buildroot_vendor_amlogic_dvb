@@ -43,6 +43,11 @@ LOCAL_SRC_FILES := am_dmx/am_dmx.c am_dmx/linux_dvb/linux_dvb.c\
 		   am_open_lib/libdvbsi/tables/tot.c\
 		   am_open_lib/libdvbsi/tables/eit.c\
 		   am_open_lib/libdvbsi/tables/nit.c\
+		   am_open_lib/libdvbsi/tables/atsc_eit.c\
+		   am_open_lib/libdvbsi/tables/atsc_ett.c\
+		   am_open_lib/libdvbsi/tables/atsc_mgt.c\
+		   am_open_lib/libdvbsi/tables/atsc_stt.c\
+		   am_open_lib/libdvbsi/tables/atsc_vct.c\
 		   am_open_lib/libdvbsi/demux.c\
 		   am_open_lib/libdvbsi/descriptors/dr_0f.c\
 		   am_open_lib/libdvbsi/descriptors/dr_44.c\
@@ -80,11 +85,13 @@ LOCAL_SRC_FILES := am_dmx/am_dmx.c am_dmx/linux_dvb/linux_dvb.c\
 		   am_open_lib/libdvbsi/descriptors/dr_83.c\
 		   am_open_lib/libdvbsi/descriptors/dr_86.c\
 		   am_open_lib/libdvbsi/descriptors/dr_87.c\
+		   am_open_lib/libdvbsi/descriptors/dr_87_ca.c\
 		   am_open_lib/libdvbsi/descriptors/dr_88.c\
 		   am_open_lib/libdvbsi/descriptors/dr_5d.c\
 		   am_open_lib/libdvbsi/descriptors/dr_6a.c\
 		   am_open_lib/libdvbsi/descriptors/dr_7a.c\
 		   am_open_lib/libdvbsi/descriptors/dr_7f.c\
+		   am_open_lib/libdvbsi/descriptors/dr_a1.c\
 		   am_open_lib/libdvbsi/psi.c\
 		   am_open_lib/libdvbsi/dvbpsi.c\
 		   am_open_lib/libdvbsi/descriptor.c\
@@ -113,7 +120,7 @@ LOCAL_SRC_FILES := am_dmx/am_dmx.c am_dmx/linux_dvb/linux_dvb.c\
 		   am_open_lib/am_ci/ca_ci.c \
 		   am_open_lib/am_freesat/freesat.c
 
-LOCAL_CFLAGS+=-DANDROID -DAMLINUX -DCHIP_8226M -DLINUX_DVB_FEND -DLOG_LEVEL=1
+LOCAL_CFLAGS+=-DANDROID -DAMLINUX -DCHIP_8226M -DLINUX_DVB_FEND -DLOG_LEVEL=1 -std=c99
 ifeq ($(AMLOGIC_LIBPLAYER), y)
 LOCAL_CFLAGS+=-DAMLOGIC_LIBPLAYER
 endif
@@ -171,6 +178,11 @@ LOCAL_SRC_FILES := am_dmx/am_dmx.c am_dmx/linux_dvb/linux_dvb.c\
 		   am_open_lib/libdvbsi/tables/tot.c\
 		   am_open_lib/libdvbsi/tables/eit.c\
 		   am_open_lib/libdvbsi/tables/nit.c\
+		   am_open_lib/libdvbsi/tables/atsc_eit.c\
+		   am_open_lib/libdvbsi/tables/atsc_ett.c\
+		   am_open_lib/libdvbsi/tables/atsc_mgt.c\
+		   am_open_lib/libdvbsi/tables/atsc_stt.c\
+		   am_open_lib/libdvbsi/tables/atsc_vct.c\
 		   am_open_lib/libdvbsi/demux.c\
 		   am_open_lib/libdvbsi/descriptors/dr_0f.c\
 		   am_open_lib/libdvbsi/descriptors/dr_44.c\
@@ -208,11 +220,13 @@ LOCAL_SRC_FILES := am_dmx/am_dmx.c am_dmx/linux_dvb/linux_dvb.c\
 		   am_open_lib/libdvbsi/descriptors/dr_83.c\
 		   am_open_lib/libdvbsi/descriptors/dr_86.c\
 		   am_open_lib/libdvbsi/descriptors/dr_87.c\
+		   am_open_lib/libdvbsi/descriptors/dr_87_ca.c\
 		   am_open_lib/libdvbsi/descriptors/dr_88.c\
 		   am_open_lib/libdvbsi/descriptors/dr_5d.c\
 		   am_open_lib/libdvbsi/descriptors/dr_6a.c\
 		   am_open_lib/libdvbsi/descriptors/dr_7a.c\
 		   am_open_lib/libdvbsi/descriptors/dr_7f.c\
+		   am_open_lib/libdvbsi/descriptors/dr_a1.c\
 		   am_open_lib/libdvbsi/psi.c\
 		   am_open_lib/libdvbsi/dvbpsi.c\
 		   am_open_lib/libdvbsi/descriptor.c\
@@ -243,7 +257,7 @@ LOCAL_SRC_FILES := am_dmx/am_dmx.c am_dmx/linux_dvb/linux_dvb.c\
 
 
 
-LOCAL_CFLAGS+=-DANDROID -DAMLINUX -DCHIP_8226M -DLINUX_DVB_FEND -DLOG_LEVEL=1
+LOCAL_CFLAGS+=-DANDROID -DAMLINUX -DCHIP_8226M -DLINUX_DVB_FEND -DLOG_LEVEL=1 -std=c99
 ifeq ($(AMLOGIC_LIBPLAYER), y)
 LOCAL_CFLAGS+=-DAMLOGIC_LIBPLAYER
 endif
