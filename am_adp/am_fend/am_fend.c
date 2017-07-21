@@ -33,6 +33,7 @@
 #include <signal.h>
 #include <assert.h>
 #include <math.h>
+#include <errno.h>
 #include "../am_adp_internal.h"
 
 /****************************************************************************
@@ -157,7 +158,7 @@ static void* fend_thread(void *arg)
 	AM_FEND_Device_t *dev = (AM_FEND_Device_t*)arg;
 	struct dvb_frontend_event evt;
 	AM_ErrorCode_t ret = AM_FAILURE;
-	
+
 	while(dev->enable_thread)
 	{
 		
@@ -529,6 +530,8 @@ static void* fend_blindscan_thread(void *arg)
 	return NULL;
 }
 
+static void sighand(int signo) {}
+
 /****************************************************************************
  * API functions
  ***************************************************************************/
@@ -589,6 +592,17 @@ AM_ErrorCode_t AM_FEND_Open(int dev_no, const AM_FEND_OpenPara_t *para)
 		ret = AM_FEND_ERR_CANNOT_CREATE_THREAD;
 		goto final;
 	}
+
+	{
+		struct sigaction actions;
+		memset(&actions, 0, sizeof(actions));
+		sigemptyset(&actions.sa_mask);
+		actions.sa_flags = 0;
+		actions.sa_handler = sighand;
+		rc = sigaction(SIGALRM, &actions, NULL);
+		if (rc != 0)
+			AM_DEBUG(1, "sigaction: err=%d", errno);
+	}
 final:	
 	pthread_mutex_unlock(&am_gAdpLock);
 
@@ -611,10 +625,15 @@ AM_ErrorCode_t AM_FEND_Close(int dev_no)
 	
 	if (dev->open_count == 1)
 	{
+		int err = 0;
+
 		dev->enable_cb = AM_FALSE;
 	
 		/*Stop the thread*/
 		dev->enable_thread = AM_FALSE;
+		err = pthread_kill(dev->thread, SIGALRM);
+		if (err != 0)
+			AM_DEBUG(1, "kill fail, err:%d", err);
 		pthread_join(dev->thread, NULL);
 	
 		/*Release the device*/
