@@ -33,7 +33,6 @@
 #include <signal.h>
 #include <assert.h>
 #include <math.h>
-#include <errno.h>
 #include "../am_adp_internal.h"
 
 /****************************************************************************
@@ -158,10 +157,15 @@ static void* fend_thread(void *arg)
 	AM_FEND_Device_t *dev = (AM_FEND_Device_t*)arg;
 	struct dvb_frontend_event evt;
 	AM_ErrorCode_t ret = AM_FAILURE;
-
+	
 	while(dev->enable_thread)
 	{
-		
+		/*when blind scan is start, we need stop fend thread read event*/
+		if (dev->enable_blindscan_thread) {
+			usleep(100 * 1000);
+			continue;
+		}
+
 		if(dev->drv->wait_event)
 		{
 			ret = dev->drv->wait_event(dev, &evt, FEND_WAIT_TIMEOUT);
@@ -530,8 +534,6 @@ static void* fend_blindscan_thread(void *arg)
 	return NULL;
 }
 
-static void sighand(int signo) {}
-
 /****************************************************************************
  * API functions
  ***************************************************************************/
@@ -592,17 +594,6 @@ AM_ErrorCode_t AM_FEND_Open(int dev_no, const AM_FEND_OpenPara_t *para)
 		ret = AM_FEND_ERR_CANNOT_CREATE_THREAD;
 		goto final;
 	}
-
-	{
-		struct sigaction actions;
-		memset(&actions, 0, sizeof(actions));
-		sigemptyset(&actions.sa_mask);
-		actions.sa_flags = 0;
-		actions.sa_handler = sighand;
-		rc = sigaction(SIGALRM, &actions, NULL);
-		if (rc != 0)
-			AM_DEBUG(1, "sigaction: err=%d", errno);
-	}
 final:	
 	pthread_mutex_unlock(&am_gAdpLock);
 
@@ -625,15 +616,10 @@ AM_ErrorCode_t AM_FEND_Close(int dev_no)
 	
 	if (dev->open_count == 1)
 	{
-		int err = 0;
-
 		dev->enable_cb = AM_FALSE;
 	
 		/*Stop the thread*/
 		dev->enable_thread = AM_FALSE;
-		err = pthread_kill(dev->thread, SIGALRM);
-		if (err != 0)
-			AM_DEBUG(1, "kill fail, err:%d", err);
 		pthread_join(dev->thread, NULL);
 	
 		/*Release the device*/
@@ -1714,6 +1700,25 @@ AM_ErrorCode_t AM_FEND_SetAfc(int dev_no, unsigned int afc)
 
 	pthread_mutex_unlock(&dev->lock);
 
+	return ret;
+}
+
+AM_ErrorCode_t AM_FEND_SetSubSystem(int dev_no, unsigned int sub_sys)
+{
+	AM_ErrorCode_t ret = AM_SUCCESS;
+	struct dtv_property p = {.cmd = DTV_DELIVERY_SUB_SYSTEM, .u.data = sub_sys};
+	struct dtv_properties props = {.num = 1, .props = &p};
+	ret = AM_FEND_SetProp(dev_no, &props);
+	return ret;
+}
+
+AM_ErrorCode_t AM_FEND_GetSubSystem(int dev_no, unsigned int *sub_sys)
+{
+	AM_ErrorCode_t ret = AM_SUCCESS;
+	struct dtv_property p = {.cmd = DTV_DELIVERY_SUB_SYSTEM, .u.data = sub_sys};
+	struct dtv_properties props = {.num = 1, .props = &p};
+	ret = AM_FEND_GetProp(dev_no, &props);
+	sub_sys = p.u.data;
 	return ret;
 }
 

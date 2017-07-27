@@ -1,0 +1,19 @@
+/mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/build/gxb/am_adp/am_inp/am_inp.co: \
+ am_inp.c \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_debug.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_util.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_mem.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/memwatch.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_util.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_time.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_types.h \
+ am_inp_internal.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_inp.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/input.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/types.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/posix_types.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/stddef.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/linux/compiler.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/input-event-codes.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_thread.h \
+ ../am_adp_internal.h

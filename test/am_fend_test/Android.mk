@@ -8,12 +8,13 @@ LOCAL_MODULE:= am_fend_test
 
 LOCAL_MODULE_TAGS := optional
 
+#LOCAL_MULTILIB := 32
+
 LOCAL_CFLAGS+=-DANDROID -DAMLINUX -DCHIP_8226M -DLINUX_DVB_FEND
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../include/am_adp $(LOCAL_PATH)/../../android/ndk/include
 				
-#LOCAL_STATIC_LIBRARIES := libam_adp
-LOCAL_SHARED_LIBRARIES := libam_adp liblog libc
-LOCAL_32_BIT_ONLY := true
+LOCAL_STATIC_LIBRARIES := libam_adp
+LOCAL_SHARED_LIBRARIES := liblog libc
 
 include $(BUILD_EXECUTABLE)
 

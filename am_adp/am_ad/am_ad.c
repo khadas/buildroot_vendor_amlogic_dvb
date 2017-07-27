@@ -21,14 +21,14 @@
  *  Copyright C 2009 by Amlogic, Inc. All Rights Reserved.
  */
 /**\file
- * \brief Audio descriptionÊ®°Âùó
+ * \brief Audio descriptionƒ£øÈ
  *
  * \author Gong Ke <ke.gong@amlogic.com>
  * \date 2017-06-23: create the document
  ***************************************************************************/
 #define AM_DEBUG_LEVEL 5
 #include <am_debug.h>
-
+#include <signal.h> 
 #include "string.h"
 #include "stdio.h"
 #include "stdlib.h"

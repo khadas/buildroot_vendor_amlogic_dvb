@@ -1,0 +1,21 @@
+/mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/build/gxb/am_adp/am_fend/am_fend_diseqc_cmd.co: \
+ am_fend_diseqc_cmd.c \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_debug.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_util.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_fend_diseqc_cmd.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_types.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_evt.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_config.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/dvb/frontend.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/types.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/posix_types.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/stddef.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/linux/compiler.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/videodev2.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/ioctl.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/v4l2-common.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/v4l2-controls.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_fend.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/vendor/amlogic/dvb-s/include/am_adp/am_dmx.h \
+ /mnt/fileroot/hualing.chen/linux-sdk/output/mesongxl_p230_kernel49/build/linux-amlogic-4.9-dev/include/uapi/linux/dvb/dmx.h \
+ am_rotor_calc.h

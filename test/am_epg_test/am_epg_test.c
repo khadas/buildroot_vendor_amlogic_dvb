@@ -279,13 +279,13 @@ static int start_epg_test()
 	disable_defproc_reg_cb(hmon);
 
 	/*注册通知事件*/
-	AM_EVT_Subscribe((size_t)hmon, AM_EPG_EVT_NEW_PAT, epg_evt_call_back, NULL);
-	AM_EVT_Subscribe((size_t)hmon, AM_EPG_EVT_NEW_PMT, epg_evt_call_back, NULL);
-	AM_EVT_Subscribe((size_t)hmon, AM_EPG_EVT_NEW_CAT, epg_evt_call_back, NULL);
-	AM_EVT_Subscribe((size_t)hmon, AM_EPG_EVT_NEW_SDT, epg_evt_call_back, NULL);
-	AM_EVT_Subscribe((size_t)hmon, AM_EPG_EVT_NEW_NIT, epg_evt_call_back, NULL);
-	AM_EVT_Subscribe((size_t)hmon, AM_EPG_EVT_NEW_TDT, epg_evt_call_back, NULL);
-	AM_EVT_Subscribe((size_t)hmon, AM_EPG_EVT_NEW_EIT, epg_evt_call_back, NULL);
+	AM_EVT_Subscribe((long)hmon, AM_EPG_EVT_NEW_PAT, epg_evt_call_back, NULL);
+	AM_EVT_Subscribe((long)hmon, AM_EPG_EVT_NEW_PMT, epg_evt_call_back, NULL);
+	AM_EVT_Subscribe((long)hmon, AM_EPG_EVT_NEW_CAT, epg_evt_call_back, NULL);
+	AM_EVT_Subscribe((long)hmon, AM_EPG_EVT_NEW_SDT, epg_evt_call_back, NULL);
+	AM_EVT_Subscribe((long)hmon, AM_EPG_EVT_NEW_NIT, epg_evt_call_back, NULL);
+	AM_EVT_Subscribe((long)hmon, AM_EPG_EVT_NEW_TDT, epg_evt_call_back, NULL);
+	AM_EVT_Subscribe((long)hmon, AM_EPG_EVT_NEW_EIT, epg_evt_call_back, NULL);
 
 	printf("------------------------------------------\n");
 	printf("commands:\n");
@@ -455,13 +455,13 @@ static int start_epg_test()
 	AM_TRY(AM_EPG_Destroy(hmon));
 	AM_DEBUG(1, "OK");
 
-	AM_EVT_Unsubscribe((size_t)hmon, AM_EPG_EVT_NEW_PAT, epg_evt_call_back, NULL);
-	AM_EVT_Unsubscribe((size_t)hmon, AM_EPG_EVT_NEW_PMT, epg_evt_call_back, NULL);
-	AM_EVT_Unsubscribe((size_t)hmon, AM_EPG_EVT_NEW_CAT, epg_evt_call_back, NULL);
-	AM_EVT_Unsubscribe((size_t)hmon, AM_EPG_EVT_NEW_SDT, epg_evt_call_back, NULL);
-	AM_EVT_Unsubscribe((size_t)hmon, AM_EPG_EVT_NEW_NIT, epg_evt_call_back, NULL);
-	AM_EVT_Unsubscribe((size_t)hmon, AM_EPG_EVT_NEW_TDT, epg_evt_call_back, NULL);
-	AM_EVT_Unsubscribe((size_t)hmon, AM_EPG_EVT_NEW_EIT, epg_evt_call_back, NULL);
+	AM_EVT_Unsubscribe((long)hmon, AM_EPG_EVT_NEW_PAT, epg_evt_call_back, NULL);
+	AM_EVT_Unsubscribe((long)hmon, AM_EPG_EVT_NEW_PMT, epg_evt_call_back, NULL);
+	AM_EVT_Unsubscribe((long)hmon, AM_EPG_EVT_NEW_CAT, epg_evt_call_back, NULL);
+	AM_EVT_Unsubscribe((long)hmon, AM_EPG_EVT_NEW_SDT, epg_evt_call_back, NULL);
+	AM_EVT_Unsubscribe((long)hmon, AM_EPG_EVT_NEW_NIT, epg_evt_call_back, NULL);
+	AM_EVT_Unsubscribe((long)hmon, AM_EPG_EVT_NEW_TDT, epg_evt_call_back, NULL);
+	AM_EVT_Unsubscribe((long)hmon, AM_EPG_EVT_NEW_EIT, epg_evt_call_back, NULL);
 
 	return 0;
 }
@@ -488,6 +488,7 @@ int main(int argc, char **argv)
 	start_epg_test();
 
 	AM_DMX_Close(DMX_DEV_NO);
+	if (freq > 0)
 	AM_FEND_Close(FEND_DEV_NO);
 	return 0;
 }

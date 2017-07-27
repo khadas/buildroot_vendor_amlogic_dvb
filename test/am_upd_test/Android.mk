@@ -11,11 +11,13 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS+=-DANDROID -DAMLINUX -DCHIP_8226M -DLINUX_DVB_FEND
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../include/am_adp \
 					$(LOCAL_PATH)/../../android/ndk/include \
-					$(LOCAL_PATH)/../../include/am_mw
-
-#LOCAL_STATIC_LIBRARIES := libam_mw libam_adp
-LOCAL_SHARED_LIBRARIES := libam_mw libam_adp liblog libc
-LOCAL_32_BIT_ONLY := true
+					$(LOCAL_PATH)/../../include/am_mw \
+				    $(LOCAL_PATH)/../../include/am_mw/libdvbsi\
+				    $(LOCAL_PATH)/../../include/am_mw/libdvbsi/descriptors\
+				    $(LOCAL_PATH)/../../include/am_mw/libdvbsi/tables\
+				    $(LOCAL_PATH)/../../include/am_mw/atsc
+LOCAL_STATIC_LIBRARIES := libam_mw libam_adp
+LOCAL_SHARED_LIBRARIES := liblog libc
 
 LOCAL_LDFLAGS += -ldl
 

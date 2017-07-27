@@ -260,7 +260,7 @@ static int start_scan_test()
 			{
 				if (hscan)
 				{
-					AM_EVT_Unsubscribe((size_t)hscan, AM_SCAN_EVT_PROGRESS, progress_evt_callback, NULL);
+					AM_EVT_Unsubscribe((long)hscan, AM_SCAN_EVT_PROGRESS, progress_evt_callback, NULL);
 					AM_SCAN_Destroy(hscan, AM_TRUE);
 					hscan == 0;
 				}
@@ -271,7 +271,7 @@ static int start_scan_test()
 				go = AM_FALSE;
 				if (hscan)
 				{
-					AM_EVT_Unsubscribe((size_t)hscan, AM_SCAN_EVT_PROGRESS, progress_evt_callback, NULL);
+					AM_EVT_Unsubscribe((long)hscan, AM_SCAN_EVT_PROGRESS, progress_evt_callback, NULL);
 					AM_SCAN_Destroy(hscan, AM_FALSE);
 				}
 				continue;
@@ -287,7 +287,7 @@ static int start_scan_test()
 			
 			if (hscan)
 			{
-				AM_EVT_Unsubscribe((size_t)hscan, AM_SCAN_EVT_PROGRESS, progress_evt_callback, NULL);
+				AM_EVT_Unsubscribe((long)hscan, AM_SCAN_EVT_PROGRESS, progress_evt_callback, NULL);
 				AM_SCAN_Destroy(hscan, AM_FALSE);
 				hscan = 0;
 			}
@@ -318,7 +318,7 @@ static int start_scan_test()
 			
 			AM_SCAN_Create(&para, &hscan);
 			/*注册搜索进度通知事件*/
-			AM_EVT_Subscribe((size_t)hscan, AM_SCAN_EVT_PROGRESS, progress_evt_callback, NULL);
+			AM_EVT_Subscribe((long)hscan, AM_SCAN_EVT_PROGRESS, progress_evt_callback, NULL);
 
 			AM_SCAN_Start(hscan);
 
@@ -336,9 +336,9 @@ int main(int argc, char **argv)
 	AM_DMX_OpenPara_t para;
 	AM_FEND_OpenPara_t fpara;
 	
-	memset(&fpara, 0, sizeof(fpara));
-	fpara.mode = FE_ANALOG;
-	AM_TRY(AM_FEND_Open(FEND_DEV_NO, &fpara));
+	// memset(&fpara, 0, sizeof(fpara));
+	// fpara.mode = FE_ANALOG;
+	// AM_TRY(AM_FEND_Open(FEND_DEV_NO, &fpara));
 	
 	memset(&para, 0, sizeof(para));
 	AM_TRY(AM_DMX_Open(DMX_DEV_NO, &para));
@@ -347,7 +347,7 @@ int main(int argc, char **argv)
 	start_scan_test();
 	
 	AM_DMX_Close(DMX_DEV_NO);
-	AM_FEND_Close(FEND_DEV_NO);
+	//AM_FEND_Close(FEND_DEV_NO);
 	
 	return 0;
 }
